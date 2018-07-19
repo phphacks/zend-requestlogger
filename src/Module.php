@@ -2,6 +2,10 @@
 
 namespace Zend\RequestLogger;
 
+use Zend\Http\PhpEnvironment\Request;
+use Zend\Mvc\MvcEvent;
+use Zend\ServiceManager\ServiceManager;
+
 /**
  * Module
  *
@@ -9,6 +13,24 @@ namespace Zend\RequestLogger;
  */
 class Module
 {
+    /**
+     * @param MvcEvent $event
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
+     */
+    public function onBootstrap(MvcEvent $event)
+    {
+        /** @var ServiceManager $serviceLocator */
+        $serviceLocator = $event->getApplication()->getServiceManager();
+
+        /** @var Request $request */
+        $request = $event->getRequest();
+
+        /** @var LoggerInterface $logger */
+        $logger = $serviceLocator->get(LoggerInterface::class);
+        $logger->log($request);
+    }
+
     /**
      * @return array
      */
