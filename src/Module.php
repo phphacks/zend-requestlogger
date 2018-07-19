@@ -26,9 +26,11 @@ class Module
         /** @var Request $request */
         $request = $event->getRequest();
 
-        /** @var LoggerInterface $logger */
-        $logger = $serviceLocator->get(LoggerInterface::class);
-        $logger->log($request);
+        if($serviceLocator->has(LoggerInterface::class)) {
+            /** @var LoggerInterface $logger */
+            $logger = $serviceLocator->get(LoggerInterface::class);
+            $logger->log($request);
+        }
     }
 
     /**
