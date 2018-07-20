@@ -11,7 +11,7 @@
         "psr-4": {
             "Zend\\RequestLogger\\" : "src"
         }
-    }
+    },
     "license": "MIT",
     "authors": [
         {
