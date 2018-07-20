@@ -5,6 +5,7 @@ namespace Zend\RequestLogger;
 use Zend\Http\PhpEnvironment\Request;
 use Zend\Mvc\MvcEvent;
 use Zend\ServiceManager\ServiceManager;
+use Zend\RequestLogger\Logger\LoggerInterface;
 
 /**
  * Module
