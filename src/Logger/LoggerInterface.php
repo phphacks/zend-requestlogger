@@ -1,6 +1,6 @@
 <?php
 
-namespace Zend\RequestLogger;
+namespace Zend\RequestLogger\Logger;
 
 use Zend\Http\PhpEnvironment\Request;
 
